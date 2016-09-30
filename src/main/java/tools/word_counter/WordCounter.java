@@ -1,11 +1,21 @@
 package tools.word_counter;
 
-public class WordCounter {
-    public void addWord(String word) {
+import java.util.ArrayList;
+import java.util.List;
 
+public class WordCounter {
+
+    private List<String> wordList;
+
+    public WordCounter() {
+        wordList = new ArrayList<>();
+    }
+
+    public void addWord(String word) {
+        wordList.add(word);
     }
 
     public boolean checkIfWordExists(String word) {
-        return false;
+        return wordList.contains(word);
     }
 }
