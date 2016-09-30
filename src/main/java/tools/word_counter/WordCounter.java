@@ -18,4 +18,8 @@ public class WordCounter {
     public boolean checkIfWordExists(String word) {
         return wordList.contains(word);
     }
+
+    public int getNumberOfWordOccurrances(String word) {
+        return 0;
+    }
 }

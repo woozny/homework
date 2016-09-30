@@ -30,4 +30,12 @@ public class WordCounterTest {
         assertThat(wordCounter.checkIfWordExists(WORD3)).isTrue();
 
     }
+
+    @Test
+    public void shouldBeAbleToReceiveNumberOfOccurrencesForSingleWord() {
+        wordCounter.addWord(WORD1);
+        wordCounter.addWord(WORD1);
+
+        assertThat(wordCounter.getNumberOfWordOccurrances(WORD1)).isEqualTo(2);
+    }
 }
