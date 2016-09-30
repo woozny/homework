@@ -1,5 +1,6 @@
 package tools.word_counter;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -10,7 +11,12 @@ public class WordCounterTest {
     private static final String WORD2 = "Strings";
     private static final String WORD3 = "Amplifier";
 
-    private final WordCounter wordCounter = new WordCounter();
+    private WordCounter wordCounter;
+
+    @Before
+    public void init() {
+        wordCounter = new WordCounter();
+    }
 
     @Test
     public void shouldBeAbleToAddOneNewWord() {
@@ -37,5 +43,13 @@ public class WordCounterTest {
         wordCounter.addWord(WORD1);
 
         assertThat(wordCounter.getNumberOfWordOccurrences(WORD1)).isEqualTo(2);
+    }
+
+    @Test
+    public void shouldProvideWordAndNumberOfOccurrences() {
+        assertThat(wordCounter.addWordAndReturnAmountOfItsOccurrences(WORD1)).isEqualTo(WORD1 + " -> " + "1");
+        assertThat(wordCounter.addWordAndReturnAmountOfItsOccurrences(WORD1)).isEqualTo(WORD1 + " -> " + "2");
+        assertThat(wordCounter.addWordAndReturnAmountOfItsOccurrences(WORD1)).isEqualTo(WORD1 + " -> " + "3");
+
     }
 }

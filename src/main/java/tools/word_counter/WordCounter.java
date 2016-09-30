@@ -33,4 +33,16 @@ public class WordCounter {
     public int getNumberOfWordOccurrences(String word) {
         return wordList.get(word);
     }
+
+    public String addWordAndReturnAmountOfItsOccurrences(String word) {
+        StringBuilder wordAndOccurrence = new StringBuilder();
+        addWord(word);
+        wordAndOccurrence.append(word).append(" -> ").append(getNumberOfWordOccurrences(word));
+
+        return String.valueOf(wordAndOccurrence);
+
+
+    }
+
+
 }
