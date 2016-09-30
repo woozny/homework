@@ -36,6 +36,6 @@ public class WordCounterTest {
         wordCounter.addWord(WORD1);
         wordCounter.addWord(WORD1);
 
-        assertThat(wordCounter.getNumberOfWordOccurrances(WORD1)).isEqualTo(2);
+        assertThat(wordCounter.getNumberOfWordOccurrences(WORD1)).isEqualTo(2);
     }
 }
