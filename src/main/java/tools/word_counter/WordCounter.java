@@ -13,7 +13,14 @@ public class WordCounter {
         wordList = new HashMap<>();
     }
 
-    public void addWord(String word) {
+    public String addWordAndReturnAmountOfItsOccurrences(String word) {
+        addWord(word);
+
+        return prepareStringWithWordAndOccurrence(word);
+    }
+
+
+    void addWord(String word) {
         if (checkIfWordExists(word)) {
             incrementNumberOfOccurrences(word);
         } else {
@@ -21,7 +28,7 @@ public class WordCounter {
         }
     }
 
-    public boolean checkIfWordExists(String word) {
+    boolean checkIfWordExists(String word) {
         return wordList.containsKey(word);
     }
 
@@ -30,19 +37,11 @@ public class WordCounter {
         wordList.put(word, ++numberOfOccurrences);
     }
 
-    public int getNumberOfWordOccurrences(String word) {
+    private String prepareStringWithWordAndOccurrence(String word) {
+        return word + " -> " + getNumberOfWordOccurrences(word);
+    }
+
+    int getNumberOfWordOccurrences(String word) {
         return wordList.get(word);
     }
-
-    public String addWordAndReturnAmountOfItsOccurrences(String word) {
-        StringBuilder wordAndOccurrence = new StringBuilder();
-        addWord(word);
-        wordAndOccurrence.append(word).append(" -> ").append(getNumberOfWordOccurrences(word));
-
-        return String.valueOf(wordAndOccurrence);
-
-
-    }
-
-
 }
